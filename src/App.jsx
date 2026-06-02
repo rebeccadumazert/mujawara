@@ -11,6 +11,16 @@ const NAV_ITEMS = [
 	{ label: "À PROPOS", path: "/a-propos" },
 ];
 
+function useWindowWidth() {
+	const [width, setWidth] = React.useState(window.innerWidth);
+	React.useEffect(() => {
+		const handler = () => setWidth(window.innerWidth);
+		window.addEventListener("resize", handler);
+		return () => window.removeEventListener("resize", handler);
+	}, []);
+	return width;
+}
+
 function About() {
 	return (
 		<div style={{ maxWidth: 640, margin: "64px auto", padding: "0 24px" }}>
@@ -52,6 +62,7 @@ function About() {
 					lineHeight: 1.8,
 					color: "var(--text-secondary)",
 					fontWeight: 300,
+					textAlign: "justify",
 				}}
 			>
 				<p>
@@ -199,6 +210,10 @@ function About() {
 }
 
 function Layout() {
+	const width = useWindowWidth();
+	const isMobile = width < 768;
+	const [menuOpen, setMenuOpen] = React.useState(false);
+
 	return (
 		<div
 			style={{
@@ -214,7 +229,8 @@ function Layout() {
 					borderBottom: "1px solid var(--border)",
 					display: "flex",
 					alignItems: "center",
-					padding: "0 32px",
+					justifyContent: "space-between",
+					padding: "0 24px",
 					position: "sticky",
 					top: 0,
 					zIndex: 1000,
@@ -236,13 +252,114 @@ function Layout() {
 					MUJAWARA
 				</Link>
 
-				<nav
+				{/* Nav desktop */}
+				{!isMobile && (
+					<nav
+						style={{
+							position: "absolute",
+							left: "50%",
+							transform: "translateX(-50%)",
+							display: "flex",
+							gap: 4,
+						}}
+					>
+						{NAV_ITEMS.map(({ label, path }) => (
+							<NavLink
+								key={path}
+								to={path}
+								end={path === "/"}
+								style={({ isActive }) => ({
+									textDecoration: "none",
+									border: "none",
+									borderBottom: isActive
+										? "2px solid var(--text-primary)"
+										: "2px solid transparent",
+									borderRadius: 0,
+									cursor: "pointer",
+									fontFamily: "var(--font-title)",
+									fontStyle: "italic",
+									fontWeight: 600,
+									fontSize: 18,
+									color: isActive
+										? "var(--text-primary)"
+										: "var(--text-muted)",
+									padding: "6px 14px",
+									transition: "all 0.15s",
+									letterSpacing: "-0.3px",
+									whiteSpace: "nowrap",
+								})}
+							>
+								{label}
+							</NavLink>
+						))}
+					</nav>
+				)}
+
+				{/* Burger mobile */}
+				{isMobile && (
+					<button
+						onClick={() => setMenuOpen(!menuOpen)}
+						style={{
+							background: "none",
+							border: "none",
+							cursor: "pointer",
+							display: "flex",
+							flexDirection: "column",
+							gap: 5,
+							padding: 4,
+						}}
+					>
+						<span
+							style={{
+								display: "block",
+								width: 24,
+								height: 2,
+								background: "var(--text-primary)",
+								transition: "all 0.2s",
+								transform: menuOpen
+									? "rotate(45deg) translate(5px, 5px)"
+									: "none",
+							}}
+						/>
+						<span
+							style={{
+								display: "block",
+								width: 24,
+								height: 2,
+								background: "var(--text-primary)",
+								transition: "all 0.2s",
+								opacity: menuOpen ? 0 : 1,
+							}}
+						/>
+						<span
+							style={{
+								display: "block",
+								width: 24,
+								height: 2,
+								background: "var(--text-primary)",
+								transition: "all 0.2s",
+								transform: menuOpen
+									? "rotate(-45deg) translate(5px, -5px)"
+									: "none",
+							}}
+						/>
+					</button>
+				)}
+			</header>
+
+			{/* Menu mobile déroulant */}
+			{isMobile && menuOpen && (
+				<div
 					style={{
-						position: "absolute",
-						left: "50%",
-						transform: "translateX(-50%)",
+						position: "fixed",
+						top: 60,
+						left: 0,
+						right: 0,
+						background: "var(--surface)",
+						borderBottom: "1px solid var(--border)",
+						zIndex: 999,
 						display: "flex",
-						gap: 4,
+						flexDirection: "column",
 					}}
 				>
 					{NAV_ITEMS.map(({ label, path }) => (
@@ -250,31 +367,26 @@ function Layout() {
 							key={path}
 							to={path}
 							end={path === "/"}
+							onClick={() => setMenuOpen(false)}
 							style={({ isActive }) => ({
 								textDecoration: "none",
-								border: "none",
-								borderBottom: isActive
-									? "2px solid var(--text-primary)"
-									: "2px solid transparent",
-								borderRadius: 0,
-								cursor: "pointer",
 								fontFamily: "var(--font-title)",
 								fontStyle: "italic",
 								fontWeight: 600,
-								fontSize: 18,
+								fontSize: 24,
 								color: isActive
 									? "var(--text-primary)"
 									: "var(--text-muted)",
-								padding: "6px 14px",
-								transition: "all 0.15s",
+								padding: "16px 24px",
+								borderBottom: "1px solid var(--border)",
 								letterSpacing: "-0.3px",
 							})}
 						>
 							{label}
 						</NavLink>
 					))}
-				</nav>
-			</header>
+				</div>
+			)}
 
 			<main style={{ flex: 1 }}>
 				<Routes>
