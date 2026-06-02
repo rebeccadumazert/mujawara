@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function EventCard({ event, onClick, isSelected }) {
+	const { i18n } = useTranslation();
+	const lang = i18n.language;
 	return (
 		<div
 			onClick={() => onClick && onClick(event)}
@@ -39,7 +42,7 @@ export default function EventCard({ event, onClick, isSelected }) {
 						lineHeight: 1.1,
 					}}
 				>
-					{event.name}
+					{event.name[lang]}
 				</h3>
 			</div>
 
@@ -51,7 +54,7 @@ export default function EventCard({ event, onClick, isSelected }) {
 					marginBottom: 8,
 				}}
 			>
-				📍 {event.city} · {event.country}
+				📍 {event.city[lang]} · {event.country[lang]}
 			</div>
 
 			<div
@@ -64,7 +67,7 @@ export default function EventCard({ event, onClick, isSelected }) {
 					marginBottom: 10,
 				}}
 			>
-				<span>📅 {event.date}</span>
+				<span>📅 {event.date[lang]}</span>
 				<span>🕐 {event.time}</span>
 			</div>
 
@@ -78,7 +81,7 @@ export default function EventCard({ event, onClick, isSelected }) {
 					marginBottom: 12,
 				}}
 			>
-				{event.description}
+				{event.description[lang]}
 			</p>
 		</div>
 	);

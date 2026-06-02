@@ -1,8 +1,11 @@
 import React from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { useTranslation } from "react-i18next";
 
 export default function MapView({ events }) {
+	const { i18n } = useTranslation();
+	const lang = i18n.language;
 	return (
 		<div style={{ height: "calc(100vh - 60px)" }}>
 			<MapContainer
@@ -45,7 +48,7 @@ export default function MapView({ events }) {
 										lineHeight: 1.1,
 									}}
 								>
-									{ev.name}
+									{ev.name[lang]}
 								</div>
 								<div
 									style={{
@@ -54,7 +57,7 @@ export default function MapView({ events }) {
 										marginBottom: 10,
 									}}
 								>
-									📍 {ev.city}, {ev.country}
+									📍 {ev.city[lang]}, {ev.country[lang]}
 								</div>
 								<div
 									style={{
@@ -63,7 +66,7 @@ export default function MapView({ events }) {
 										marginBottom: 4,
 									}}
 								>
-									📅 {ev.date}
+									📅  {ev.date[lang]}
 								</div>
 								<div
 									style={{
@@ -83,7 +86,7 @@ export default function MapView({ events }) {
 										fontWeight: 300,
 									}}
 								>
-									{ev.description}
+									{ev.description[lang]}
 								</p>
 								<div
 									style={{

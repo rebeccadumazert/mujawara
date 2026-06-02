@@ -1,30 +1,32 @@
 import React, { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import EventCard from "./EventCard";
 
 export default function ListView({ events }) {
 	const [search, setSearch] = useState("");
+	const { i18n } = useTranslation();
+	const lang = i18n.language;
 
 	const filtered = useMemo(() => {
 		return events.filter((e) => {
 			const q = search.toLowerCase();
 			const matchSearch =
 				!q ||
-				e.name.toLowerCase().includes(q) ||
+				e.name[lang].toLowerCase().includes(q) ||
 				e.city.toLowerCase().includes(q) ||
-				e.country.toLowerCase().includes(q);
+				e.country[lang].toLowerCase().includes(q);
 			return matchSearch;
 		});
-	}, [events, search]);
+	}, [events, search, lang]);
 
-	// Group by country → city
 	const grouped = useMemo(() => {
 		const map = {};
 		filtered.forEach((e) => {
-			if (!map[e.country]) map[e.country] = {};
-			if (!map[e.country][e.city]) map[e.country][e.city] = [];
-			map[e.country][e.city].push(e);
+			const country = e.country[lang];
+			if (!map[country]) map[country] = {};
+			if (!map[country][e.city]) map[country][e.city] = [];
+			map[country][e.city].push(e);
 		});
-		// Sort countries and cities alphabetically
 		const sorted = {};
 		Object.keys(map)
 			.sort()
@@ -37,11 +39,10 @@ export default function ListView({ events }) {
 					});
 			});
 		return sorted;
-	}, [filtered]);
+	}, [filtered, lang]);
 
 	return (
 		<div style={{ maxWidth: 800, margin: "0 auto", padding: "32px 24px" }}>
-			{/* Search + filters */}
 			<div style={{ marginBottom: 28 }}>
 				<input
 					type="text"
@@ -62,7 +63,6 @@ export default function ListView({ events }) {
 				/>
 			</div>
 
-			{/* Results count */}
 			{filtered.length === 0 ? (
 				<div
 					style={{
@@ -88,10 +88,8 @@ export default function ListView({ events }) {
 						{Object.keys(grouped).length} pays
 					</div>
 
-					{/* Grouped list */}
 					{Object.entries(grouped).map(([country, cities]) => (
 						<div key={country} style={{ marginBottom: 36 }}>
-							{/* Country header */}
 							<div
 								style={{
 									display: "flex",
@@ -132,7 +130,6 @@ export default function ListView({ events }) {
 										key={city}
 										style={{ marginBottom: 20 }}
 									>
-										{/* City header */}
 										<div
 											style={{
 												display: "flex",
@@ -154,7 +151,6 @@ export default function ListView({ events }) {
 												📍 {city}
 											</span>
 										</div>
-
 										<div
 											style={{
 												display: "flex",
