@@ -36,7 +36,6 @@ export default function EventCard({ event, onClick, isSelected }) {
 					style={{
 						fontFamily: "var(--font-title)",
 						fontWeight: 800,
-						fontStyle: "italic",
 						fontSize: 22,
 						color: "var(--text-primary)",
 						lineHeight: 1.1,

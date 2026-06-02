@@ -13,7 +13,7 @@ export default function ListView({ events }) {
 			const matchSearch =
 				!q ||
 				e.name[lang].toLowerCase().includes(q) ||
-				e.city.toLowerCase().includes(q) ||
+				e.city[lang].toLowerCase().includes(q) ||
 				e.country[lang].toLowerCase().includes(q);
 			return matchSearch;
 		});
@@ -23,9 +23,10 @@ export default function ListView({ events }) {
 		const map = {};
 		filtered.forEach((e) => {
 			const country = e.country[lang];
+			const city = e.city[lang];
 			if (!map[country]) map[country] = {};
-			if (!map[country][e.city]) map[country][e.city] = [];
-			map[country][e.city].push(e);
+			if (!map[country][city]) map[country][city] = [];
+			map[country][city].push(e);
 		});
 		const sorted = {};
 		Object.keys(map)
