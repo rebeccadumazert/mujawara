@@ -3,9 +3,10 @@ import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useTranslation } from "react-i18next";
 
-export default function MapView({ events }) {
+export default function MapView({ cities }) {
 	const { i18n } = useTranslation();
 	const lang = i18n.language;
+
 	return (
 		<div style={{ height: "calc(100vh - 60px)" }}>
 			<MapContainer
@@ -18,10 +19,10 @@ export default function MapView({ events }) {
 					attribution='&copy; <a href="https://carto.com/">CARTO</a>'
 					url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
 				/>
-				{events.map((ev) => (
+				{cities.map((city) => (
 					<CircleMarker
-						key={ev.id}
-						center={[ev.lat, ev.lng]}
+						key={city.id}
+						center={[city.lat, city.lng]}
 						radius={8}
 						pathOptions={{
 							fillColor: "#c0392b",
@@ -30,7 +31,7 @@ export default function MapView({ events }) {
 							weight: 2,
 						}}
 					>
-						<Popup closeButton={true} maxWidth={280}>
+						<Popup closeButton={false} maxWidth={200}>
 							<div
 								style={{
 									padding: "4px 2px",
@@ -41,61 +42,23 @@ export default function MapView({ events }) {
 									style={{
 										fontFamily: "var(--font-title)",
 										fontWeight: 800,
-										fontStyle: "normal",
-										fontSize: 20,
+										fontStyle: "italic",
+										fontSize: 18,
 										color: "var(--text-primary)",
 										marginBottom: 4,
-										lineHeight: 1.1,
+										lineHeight: 1.2,
 									}}
 								>
-									{ev.name[lang]}
+									{city.name[lang]}
 								</div>
 								<div
 									style={{
 										fontSize: 12,
 										color: "var(--text-muted)",
-										marginBottom: 10,
 									}}
 								>
-									📍 {ev.city[lang]}, {ev.country[lang]}
+									{city.country[lang]}
 								</div>
-								<div
-									style={{
-										fontSize: 12,
-										color: "var(--text-secondary)",
-										marginBottom: 4,
-									}}
-								>
-									📅  {ev.date[lang]}
-								</div>
-								<div
-									style={{
-										fontSize: 12,
-										color: "var(--text-secondary)",
-										marginBottom: 10,
-									}}
-								>
-									🕐 {ev.time}
-								</div>
-								<p
-									style={{
-										fontSize: 12,
-										color: "var(--text-secondary)",
-										lineHeight: 1.6,
-										marginBottom: 10,
-										fontWeight: 300,
-									}}
-								>
-									{ev.description[lang]}
-								</p>
-								<div
-									style={{
-										display: "flex",
-										flexWrap: "wrap",
-										gap: 4,
-										marginBottom: 12,
-									}}
-								></div>
 							</div>
 						</Popup>
 					</CircleMarker>

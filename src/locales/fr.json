@@ -28,5 +28,13 @@
     "p18": "Ce moment n'est qu'une étape — mais une étape décisive : celle de la construction lente mais déterminée, d'une puissance matérielle ancrée reliant aux quatre coins de la planète les fragments de notre force naissante.",
     "p19": "Depuis les géographies que nous avons pris l'habitude de nommer :",
     "p20": "Taipei, Mexico, Nancy, la vallée de la Bekaa, Berlin, Santiago du Chili, les collines du Galloway, Paris/Montreuil, Damas, la Provence, la montagne Limousine"
-  }
+  },
+  "search": {
+    "placeholder": "Rechercher une ville ou un pays..."
+  },"list": {
+  "cities": "ville",
+  "cities_plural": "villes",
+  "countries": "pays",
+  "not_found": "Aucune ville trouvée."
+}
 }

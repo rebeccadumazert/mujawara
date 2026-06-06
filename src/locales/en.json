@@ -28,5 +28,14 @@
     "p18": "This moment is but a step—yet a decisive one: that of the slow but unwavering construction of a grounded material power, linking across the four corners of the planet the fragments of our nascent strength.",
     "p19": "From the places we have grown accustomed to naming:",
     "p20": "Taipei, Mexico City, Nancy, the Beqaa Valley, Berlin, Santiago de Chile, Galloway hills, Paris/Montreuil, Damascus, la Provence, the Limousin mountain"
-  }
+  },
+  "search": {
+    "placeholder": "Search for a city or a country..."
+  },
+  "list": {
+  "cities": "city",
+  "cities_plural": "cities",
+  "countries": "countries",
+  "not_found": "No city found."
+}
 }

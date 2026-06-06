@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MapView from "./components/MapView";
 import ListView from "./components/ListView";
-import events from "./data/events";
+import cities from "./data/cities";
 import "./index.css";
 
 function useWindowWidth() {
@@ -345,10 +345,10 @@ function Layout() {
 
 			<main style={{ flex: 1 }}>
 				<Routes>
-					<Route path="/" element={<MapView events={events} />} />
+					<Route path="/" element={<MapView cities={cities} />} />
 					<Route
 						path="/evenements"
-						element={<ListView events={events} />}
+						element={<ListView cities={cities} />}
 					/>
 					<Route path="/a-propos" element={<About />} />
 				</Routes>

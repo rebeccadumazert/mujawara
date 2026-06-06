@@ -1,43 +1,34 @@
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import EventCard from "./EventCard";
 
-export default function ListView({ events }) {
+export default function ListView({ cities }) {
 	const [search, setSearch] = useState("");
-	const { i18n } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const lang = i18n.language;
 
 	const filtered = useMemo(() => {
-		return events.filter((e) => {
+		return cities.filter((c) => {
 			const q = search.toLowerCase();
-			const matchSearch =
+			return (
 				!q ||
-				e.name[lang].toLowerCase().includes(q) ||
-				e.city[lang].toLowerCase().includes(q) ||
-				e.country[lang].toLowerCase().includes(q);
-			return matchSearch;
+				c.name[lang].toLowerCase().includes(q) ||
+				c.country[lang].toLowerCase().includes(q)
+			);
 		});
-	}, [events, search, lang]);
+	}, [cities, search, lang]);
 
 	const grouped = useMemo(() => {
 		const map = {};
-		filtered.forEach((e) => {
-			const country = e.country[lang];
-			const city = e.city[lang];
-			if (!map[country]) map[country] = {};
-			if (!map[country][city]) map[country][city] = [];
-			map[country][city].push(e);
+		filtered.forEach((c) => {
+			const country = c.country[lang];
+			if (!map[country]) map[country] = [];
+			map[country].push(c);
 		});
 		const sorted = {};
 		Object.keys(map)
 			.sort()
 			.forEach((country) => {
-				sorted[country] = {};
-				Object.keys(map[country])
-					.sort()
-					.forEach((city) => {
-						sorted[country][city] = map[country][city];
-					});
+				sorted[country] = map[country];
 			});
 		return sorted;
 	}, [filtered, lang]);
@@ -47,7 +38,7 @@ export default function ListView({ events }) {
 			<div style={{ marginBottom: 28 }}>
 				<input
 					type="text"
-					placeholder="Rechercher un événement, une ville, un pays…"
+					placeholder={t("search.placeholder")}
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 					style={{
@@ -59,7 +50,6 @@ export default function ListView({ events }) {
 						background: "var(--surface)",
 						color: "var(--text-primary)",
 						outline: "none",
-						marginBottom: 14,
 					}}
 				/>
 			</div>
@@ -73,7 +63,7 @@ export default function ListView({ events }) {
 						fontSize: 14,
 					}}
 				>
-					Aucun événement trouvé.
+					{t("list.not_found")}
 				</div>
 			) : (
 				<>
@@ -84,92 +74,61 @@ export default function ListView({ events }) {
 							marginBottom: 24,
 						}}
 					>
-						{filtered.length} événement
-						{filtered.length > 1 ? "s" : ""} ·{" "}
-						{Object.keys(grouped).length} pays
+						{filtered.length}{" "}
+						{filtered.length > 1
+							? t("list.cities_plural")
+							: t("list.cities")}{" "}
+						· {Object.keys(grouped).length} {t("list.countries")}
 					</div>
 
-					{Object.entries(grouped).map(([country, cities]) => (
-						<div key={country} style={{ marginBottom: 36 }}>
+					{Object.entries(grouped).map(([country, countryCities]) => (
+						<div key={country} style={{ marginBottom: 32 }}>
 							<div
 								style={{
 									display: "flex",
 									alignItems: "center",
 									gap: 10,
-									marginBottom: 16,
+									marginBottom: 12,
 								}}
 							>
 								<h2
 									style={{
-										fontSize: 18,
+										fontFamily: "var(--font-title)",
+										fontStyle: "normal",
+										fontSize: 20,
 										fontWeight: 700,
 										color: "var(--text-primary)",
 									}}
 								>
 									{country}
 								</h2>
-								<span
-									style={{
-										fontSize: 11,
-										padding: "2px 8px",
-										borderRadius: 99,
-										background: "var(--border)",
-										color: "var(--text-muted)",
-									}}
-								>
-									{Object.values(cities).flat().length}{" "}
-									événement
-									{Object.values(cities).flat().length > 1
-										? "s"
-										: ""}
-								</span>
 							</div>
 
-							{Object.entries(cities).map(
-								([city, cityEvents]) => (
-									<div
-										key={city}
-										style={{ marginBottom: 20 }}
+							<div
+								style={{
+									display: "flex",
+									flexWrap: "wrap",
+									gap: 8,
+									paddingLeft: 12,
+									borderLeft: "2px solid var(--accent)",
+								}}
+							>
+								{countryCities.map((c) => (
+									<span
+										key={c.id}
+										style={{
+											fontSize: 13,
+											padding: "4px 12px",
+											border: "1px solid var(--border)",
+											borderRadius: 99,
+											color: "var(--text-secondary)",
+											background: "var(--surface)",
+										}}
 									>
-										<div
-											style={{
-												display: "flex",
-												alignItems: "center",
-												gap: 8,
-												marginBottom: 10,
-												paddingLeft: 12,
-												borderLeft:
-													"2px solid var(--accent)",
-											}}
-										>
-											<span
-												style={{
-													fontSize: 13,
-													fontWeight: 600,
-													color: "var(--text-secondary)",
-												}}
-											>
-												📍 {city}
-											</span>
-										</div>
-										<div
-											style={{
-												display: "flex",
-												flexDirection: "column",
-												gap: 10,
-												paddingLeft: 12,
-											}}
-										>
-											{cityEvents.map((ev) => (
-												<EventCard
-													key={ev.id}
-													event={ev}
-												/>
-											))}
-										</div>
-									</div>
-								),
-							)}
+										{c.name[lang]}
+									</span>
+								))}
+							</div>
 						</div>
 					))}
 				</>

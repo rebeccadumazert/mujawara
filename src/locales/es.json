@@ -28,5 +28,14 @@
     "p18": "Este momento es solo una etapa, pero decisiva: la lenta y firme construcción de una potencia material arraigada que, en los cuatro rincones del planeta, conecte los fragmentos de nuestra fuerza naciente.",
     "p19": "Desde las geografías que acostumbramos a llamar:",
     "p20": "Taipei, Ciudad de México, Nancy, el valle de la Bekaa, Berlín, Santiago de Chile, las colinas de Galloway, París/Montreuil, Damasco, Provenza, la montaña del limousin"
-  }
+  },
+  "search": {
+    "placeholder": "Busca una ciudad o un país..."
+  },
+  "list": {
+  "cities": "ciudad",
+  "cities_plural": "ciudades",
+  "countries": "países",
+  "not_found": "No se encontró ninguna ciudad."
+}
 }
