@@ -12,6 +12,13 @@ export default function MapView({ cities }) {
 			<MapContainer
 				center={[20, 10]}
 				zoom={2}
+				minZoom={2}
+				maxZoom={10}
+				maxBounds={[
+					[-90, -180],
+					[90, 180],
+				]}
+				maxBoundsViscosity={1.0}
 				style={{ width: "100%", height: "100%" }}
 				scrollWheelZoom={true}
 			>
