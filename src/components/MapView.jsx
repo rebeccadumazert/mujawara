@@ -1,27 +1,11 @@
 import React from "react";
-import {
-	MapContainer,
-	TileLayer,
-	CircleMarker,
-	Popup,
-	Polyline,
-} from "react-leaflet";
+import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useTranslation } from "react-i18next";
 
 export default function MapView({ cities }) {
 	const { i18n } = useTranslation();
 	const lang = i18n.language;
-
-	const lines = [];
-	cities.forEach((a, i) => {
-		cities.slice(i + 1).forEach((b) => {
-			lines.push([
-				[a.lat, a.lng],
-				[b.lat, b.lng],
-			]);
-		});
-	});
 	return (
 		<div style={{ height: "calc(100vh - 60px)" }}>
 			<MapContainer
@@ -39,7 +23,7 @@ export default function MapView({ cities }) {
 			>
 				<TileLayer
 					attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-					url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+					url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
 				/>
 				{cities.map((city) => (
 					<CircleMarker
@@ -53,10 +37,9 @@ export default function MapView({ cities }) {
 							weight: 2,
 						}}
 					>
-						<Popup closeButton={false} maxWidth={200}>
+						<Popup closeButton={false} minWidth={0} maxWidth={120}>
 							<div
 								style={{
-									padding: "4px 2px",
 									fontFamily: "var(--font-body)",
 								}}
 							>
@@ -67,7 +50,6 @@ export default function MapView({ cities }) {
 										fontStyle: "italic",
 										fontSize: 18,
 										color: "var(--text-primary)",
-										marginBottom: 4,
 										lineHeight: 1.2,
 									}}
 								>
@@ -84,17 +66,6 @@ export default function MapView({ cities }) {
 							</div>
 						</Popup>
 					</CircleMarker>
-				))}
-				{lines.map((positions, i) => (
-					<Polyline
-						key={i}
-						positions={positions}
-						pathOptions={{
-							color: "#c0392b",
-							weight: 0.5,
-							opacity: 0.15,
-						}}
-					/>
 				))}
 			</MapContainer>
 		</div>

@@ -132,7 +132,7 @@ function Layout() {
 						fontWeight: 800,
 						fontStyle: "italic",
 						fontSize: 30,
-						color: "var(--text-primary)",
+						color: "#C0392B",
 						letterSpacing: "-0.5px",
 						lineHeight: 1,
 					}}
