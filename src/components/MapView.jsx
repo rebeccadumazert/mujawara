@@ -1,5 +1,11 @@
 import React from "react";
-import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import {
+	MapContainer,
+	TileLayer,
+	CircleMarker,
+	Popup,
+	Polyline,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useTranslation } from "react-i18next";
 
@@ -7,6 +13,15 @@ export default function MapView({ cities }) {
 	const { i18n } = useTranslation();
 	const lang = i18n.language;
 
+	const lines = [];
+	cities.forEach((a, i) => {
+		cities.slice(i + 1).forEach((b) => {
+			lines.push([
+				[a.lat, a.lng],
+				[b.lat, b.lng],
+			]);
+		});
+	});
 	return (
 		<div style={{ height: "calc(100vh - 60px)" }}>
 			<MapContainer
@@ -69,6 +84,17 @@ export default function MapView({ cities }) {
 							</div>
 						</Popup>
 					</CircleMarker>
+				))}
+				{lines.map((positions, i) => (
+					<Polyline
+						key={i}
+						positions={positions}
+						pathOptions={{
+							color: "#c0392b",
+							weight: 0.5,
+							opacity: 0.15,
+						}}
+					/>
 				))}
 			</MapContainer>
 		</div>
