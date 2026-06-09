@@ -714,10 +714,10 @@ const cities = [
 	{
 		id: 67,
 		name: {
-			fr: "Balmaclellan",
-			en: "Balmaclellan",
-			ar: "بالماكليلان",
-			es: "Balmaclellan",
+			fr: "Galloway",
+			en: "Galloway",
+			ar: "غالووي",
+			es: "Galloway",
 		},
 		country: {
 			fr: "Écosse",
@@ -725,8 +725,25 @@ const cities = [
 			ar: "اسكتلندا",
 			es: "Escocia",
 		},
-		lat: 55.083,
-		lng: -4.05,
+		lat: 53.27,
+		lng: -9.062,
+	},
+	{
+		id: 68,
+		name: {
+			fr: "Bangalore",
+			en: "Bangalore",
+			ar: "بانغالور",
+			es: "Bangalore",
+		},
+		country: {
+			fr: "Inde",
+			en: "India",
+			ar: "الهند",
+			es: "India",
+		},
+		lat: 12.9716,
+		lng: 77.5946,
 	},
 ];
 
