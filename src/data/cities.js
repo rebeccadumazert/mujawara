@@ -729,21 +729,21 @@ const cities = [
 		lng: -9.062,
 	},
 	{
-		id: 68,
+		id: 69,
 		name: {
-			fr: "Bangalore",
-			en: "Bangalore",
-			ar: "بانغالور",
-			es: "Bangalore",
+			fr: "Kyiv",
+			en: "Kyiv",
+			ar: "كييف",
+			es: "Kiev",
 		},
 		country: {
-			fr: "Inde",
-			en: "India",
-			ar: "الهند",
-			es: "India",
+			fr: "Ukraine",
+			en: "Ukraine",
+			ar: "أوكرانيا",
+			es: "Ucrania",
 		},
-		lat: 12.9716,
-		lng: 77.5946,
+		lat: 50.45,
+		lng: 30.5233,
 	},
 ];
 
