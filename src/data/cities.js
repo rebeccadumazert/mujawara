@@ -729,7 +729,7 @@ const cities = [
 		lng: -9.062,
 	},
 	{
-		id: 69,
+		id: 68,
 		name: {
 			fr: "Kyiv",
 			en: "Kyiv",
@@ -744,6 +744,23 @@ const cities = [
 		},
 		lat: 50.45,
 		lng: 30.5233,
+	},
+	{
+		id: 69,
+		name: {
+			fr: "Bangalore",
+			en: "Bangalore",
+			ar: "بانغالور",
+			es: "Bangalore",
+		},
+		country: {
+			fr: "Inde",
+			en: "India",
+			ar: "الهند",
+			es: "India",
+		},
+		lat: 12.9716,
+		lng: 77.5946,
 	},
 ];
 
