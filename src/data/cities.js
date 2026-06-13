@@ -430,10 +430,15 @@ const cities = [
 	},
 	{
 		id: 38,
-		name: { fr: "Goasven", en: "Goasven", ar: "غواسفن", es: "Goasven" },
+		name: {
+			fr: "Logonna Daoulas",
+			en: "Logonna Daoulas",
+			ar: "لوجونا داولاس",
+			es: "Logonna Daoulas",
+		},
 		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
 		lat: 48.46,
-		lng: -3.94,
+		lng: -4.299589,
 	},
 	{
 		id: 39,
@@ -581,7 +586,7 @@ const cities = [
 	},
 	{
 		id: 56,
-		name: { fr: "Bilbao", en: "Bilbao", ar: "بلباو", es: "Bilbao" },
+		name: { fr: "Bilbo", en: "Bilbo", ar: "بلباو", es: "Bilbo" },
 		country: {
 			fr: "Pays Basque",
 			en: "Basque Country",
@@ -619,18 +624,6 @@ const cities = [
 		},
 		lat: 42.846,
 		lng: -2.673,
-	},
-	{
-		id: 59,
-		name: { fr: "Iruña", en: "Iruña", ar: "إيرونيا", es: "Iruña" },
-		country: {
-			fr: "Pays Basque",
-			en: "Basque Country",
-			ar: "البلاد الباسكية",
-			es: "Euskal Herria",
-		},
-		lat: 42.812,
-		lng: -1.645,
 	},
 	{
 		id: 60,
@@ -725,8 +718,8 @@ const cities = [
 			ar: "اسكتلندا",
 			es: "Escocia",
 		},
-		lat: 53.27,
-		lng: -9.062,
+		lat: 55.1002,
+		lng: -3.8717,
 	},
 	{
 		id: 68,
@@ -761,6 +754,91 @@ const cities = [
 		},
 		lat: 12.9716,
 		lng: 77.5946,
+	},
+	{
+		id: 70,
+		name: {
+			fr: "Saint-Laurent-du-Maroni",
+			en: "Saint-Laurent-du-Maroni",
+			ar: "سانت-لوران-du-ماروني",
+			es: "Saint-Laurent-du-Maroni",
+		},
+		country: {
+			fr: "Guyane",
+			en: "Guyana",
+			ar: "غيانا",
+			es: "Guyana",
+		},
+		lat: 3.9439622,
+		lng: -53.7357694,
+	},
+	{
+		id: 71,
+		name: {
+			fr: "Johnson-City",
+			en: "Johnson-City",
+			ar: "جونسون-سيتي",
+			es: "Johnson-City",
+		},
+		country: {
+			fr: "États-Unis",
+			en: "United States",
+			ar: "الولايات المتحدة",
+			es: "Estados Unidos",
+		},
+		lat: 36.3167671,
+		lng: -82.352903,
+	},
+	{
+		id: 72,
+		name: {
+			fr: "San Diego",
+			en: "San Diego",
+			ar: "سان دييغو",
+			es: "San Diego",
+		},
+		country: {
+			fr: "États-Unis",
+			en: "United States",
+			ar: "الولايات المتحدة",
+			es: "Estados Unidos",
+		},
+		lat: 32.7174202,
+		lng: -117.1627727,
+	},
+	{
+		id: 73,
+		name: {
+			fr: "Londres",
+			en: "London",
+			ar: "لندن",
+			es: "Londres",
+		},
+		country: {
+			fr: "Angleterre",
+			en: "England",
+			ar: "إنجلترا",
+			es: "Inglaterra",
+		},
+		lat: 51.5074456,
+		lng: -0.127758,
+	},
+	{
+		id: 74,
+		name: {
+			fr: "Madagascar",
+			en: "Madagascar",
+			ar: "مدغاسكار",
+			es: "Madagascar",
+		},
+		country: {
+			fr: "",
+			en: "",
+			ar: "",
+			es: "",
+		},
+		lat: -18.9249604,
+		lng: 46.4416422,
 	},
 ];
 
