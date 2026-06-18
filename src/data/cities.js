@@ -840,6 +840,23 @@ const cities = [
 		lat: -18.9249604,
 		lng: 46.4416422,
 	},
+	{
+		id: 75,
+		name: {
+			fr: "Mexique",
+			en: "Mexico",
+			ar: "المكسيك",
+			es: "México",
+		},
+		country: {
+			fr: "Aguascalientes",
+			en: "Aguascalientes",
+			ar: "أغواسكاليينتس",
+			es: "Aguascalientes",
+		},
+		lat: 21.880487,
+		lng: -102.2967195,
+	},
 ];
 
 export default cities;
