@@ -843,16 +843,16 @@ const cities = [
 	{
 		id: 75,
 		name: {
-			fr: "Mexique",
-			en: "Mexico",
-			ar: "المكسيك",
-			es: "México",
-		},
-		country: {
 			fr: "Aguascalientes",
 			en: "Aguascalientes",
 			ar: "أغواسكاليينتس",
 			es: "Aguascalientes",
+		},
+		country: {
+			fr: "Mexique",
+			en: "Mexico",
+			ar: "المكسيك",
+			es: "México",
 		},
 		lat: 21.880487,
 		lng: -102.2967195,
