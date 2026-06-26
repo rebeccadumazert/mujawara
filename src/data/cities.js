@@ -857,6 +857,23 @@ const cities = [
 		lat: 21.880487,
 		lng: -102.2967195,
 	},
+	{
+		id: 76,
+		name: {
+			fr: "New-York",
+			en: "New-York",
+			ar: "نيويورك",
+			es: "Nueva-York",
+		},
+		country: {
+			fr: "États-Unis",
+			en: "United States",
+			ar: "الولايات المتحدة",
+			es: "Estados Unidos",
+		},
+		lat: 40.7128,
+		lng: -74.006,
+	},
 ];
 
 export default cities;
