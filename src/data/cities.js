@@ -874,6 +874,23 @@ const cities = [
 		lat: 40.7128,
 		lng: -74.006,
 	},
+	{
+		id: 77,
+		name: {
+			fr: "Lamastre",
+			en: "Lamastre",
+			ar: "لاماستري",
+			es: "Lamastre",
+		},
+		country: {
+			fr: "France",
+			en: "France",
+			ar: "فرنسا",
+			es: "Francia",
+		},
+		lat: 44.985489,
+		lng: 4.579637,
+	},
 ];
 
 export default cities;
