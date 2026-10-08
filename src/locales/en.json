@@ -1,7 +1,7 @@
 {
   "nav": {
     "map": "MAP",
-    "events": "EVENTS",
+    "events": "ACTIONS",
     "about": "ABOUT"
   },
   "about": {
