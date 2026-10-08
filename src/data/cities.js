@@ -1,22 +1,17 @@
 const cities = [
 	{
-		id: 1,
-		name: {
-			fr: "Vallée de la Bekaa",
-			en: "Beqaa Valley",
-			ar: "وادي البقاع",
-			es: "Valle de la Bekaa",
-		},
-		country: { fr: "Liban", en: "Lebanon", ar: "لبنان", es: "Líbano" },
-		lat: 33.846,
-		lng: 35.902,
-	},
-	{
 		id: 2,
 		name: { fr: "Syrie", en: "Syria", ar: "سوريا", es: "Siria" },
-		country: { fr: "", en: "", ar: "", es: "" },
+		country: { fr: "Syrie", en: "Syria", ar: "سوريا", es: "Siria" },
 		lat: 34.802,
 		lng: 38.996,
+	},
+	{
+		id: 85,
+		name: { fr: "Syrie", en: "Syria", ar: "سوريا", es: "Siria" },
+		country: { fr: "Syrie", en: "Syria", ar: "سوريا", es: "Siria" },
+		lat: 35.6,
+		lng: 38.6,
 	},
 	{
 		id: 3,
@@ -79,9 +74,16 @@ const cities = [
 	{
 		id: 7,
 		name: { fr: "Chine", en: "China", ar: "الصين", es: "China" },
-		country: { fr: "", en: "", ar: "", es: "" },
+		country: { fr: "Chine", en: "China", ar: "الصين", es: "China" },
 		lat: 35.861,
 		lng: 104.195,
+	},
+	{
+		id: 86,
+		name: { fr: "Chine", en: "China", ar: "الصين", es: "China" },
+		country: { fr: "Chine", en: "China", ar: "الصين", es: "China" },
+		lat: 34.6,
+		lng: 106.4,
 	},
 	{
 		id: 8,
@@ -118,6 +120,18 @@ const cities = [
 		country: { fr: "Mexique", en: "Mexico", ar: "المكسيك", es: "México" },
 		lat: 19.432,
 		lng: -99.133,
+	},
+	{
+		id: 87,
+		name: {
+			fr: "Ciudad de México",
+			en: "Mexico City",
+			ar: "مكسيكو سيتي",
+			es: "Ciudad de México",
+		},
+		country: { fr: "Mexique", en: "Mexico", ar: "المكسيك", es: "México" },
+		lat: 19.42,
+		lng: -99.145,
 	},
 	{
 		id: 11,
@@ -493,6 +507,27 @@ const cities = [
 		lng: 4.835,
 	},
 	{
+		id: 88,
+		name: { fr: "Lyon", en: "Lyon", ar: "ليون", es: "Lyon" },
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 45.772,
+		lng: 4.848,
+	},
+	{
+		id: 89,
+		name: { fr: "Lyon", en: "Lyon", ar: "ليون", es: "Lyon" },
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 45.755,
+		lng: 4.851,
+	},
+	{
+		id: 90,
+		name: { fr: "Lyon", en: "Lyon", ar: "ليون", es: "Lyon" },
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 45.758,
+		lng: 4.822,
+	},
+	{
 		id: 45,
 		name: { fr: "Royans", en: "Royans", ar: "روايان", es: "Royans" },
 		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
@@ -512,6 +547,13 @@ const cities = [
 		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
 		lat: 43.604,
 		lng: 1.444,
+	},
+	{
+		id: 91,
+		name: { fr: "Toulouse", en: "Toulouse", ar: "تولوز", es: "Toulouse" },
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 43.612,
+		lng: 1.456,
 	},
 	{
 		id: 48,
@@ -576,6 +618,34 @@ const cities = [
 		country: { fr: "Belgique", en: "Belgium", ar: "بلجيكا", es: "Bélgica" },
 		lat: 50.633,
 		lng: 5.567,
+	},
+	{
+		id: 92,
+		name: { fr: "Liège", en: "Liège", ar: "لييج", es: "Lieja" },
+		country: { fr: "Belgique", en: "Belgium", ar: "بلجيكا", es: "Bélgica" },
+		lat: 50.641,
+		lng: 5.578,
+	},
+	{
+		id: 93,
+		name: { fr: "Liège", en: "Liège", ar: "لييج", es: "Lieja" },
+		country: { fr: "Belgique", en: "Belgium", ar: "بلجيكا", es: "Bélgica" },
+		lat: 50.626,
+		lng: 5.58,
+	},
+	{
+		id: 94,
+		name: { fr: "Liège", en: "Liège", ar: "لييج", es: "Lieja" },
+		country: { fr: "Belgique", en: "Belgium", ar: "بلجيكا", es: "Bélgica" },
+		lat: 50.624,
+		lng: 5.556,
+	},
+	{
+		id: 95,
+		name: { fr: "Liège", en: "Liège", ar: "لييج", es: "Lieja" },
+		country: { fr: "Belgique", en: "Belgium", ar: "بلجيكا", es: "Bélgica" },
+		lat: 50.642,
+		lng: 5.556,
 	},
 	{
 		id: 55,
@@ -669,6 +739,18 @@ const cities = [
 		lng: 13.405,
 	},
 	{
+		id: 96,
+		name: { fr: "Berlin", en: "Berlin", ar: "برلين", es: "Berlín" },
+		country: {
+			fr: "Allemagne",
+			en: "Germany",
+			ar: "ألمانيا",
+			es: "Alemania",
+		},
+		lat: 52.512,
+		lng: 13.42,
+	},
+	{
 		id: 64,
 		name: { fr: "Hamburg", en: "Hamburg", ar: "هامبورغ", es: "Hamburgo" },
 		country: {
@@ -760,14 +842,14 @@ const cities = [
 		name: {
 			fr: "Saint-Laurent-du-Maroni",
 			en: "Saint-Laurent-du-Maroni",
-			ar: "سانت-لوران-du-ماروني",
+			ar: "سان لوران دو ماروني",
 			es: "Saint-Laurent-du-Maroni",
 		},
 		country: {
 			fr: "Guyane",
-			en: "Guyana",
-			ar: "غيانا",
-			es: "Guyana",
+			en: "French Guiana",
+			ar: "غويانا الفرنسية",
+			es: "Guayana Francesa",
 		},
 		lat: 3.9439622,
 		lng: -53.7357694,
@@ -775,10 +857,10 @@ const cities = [
 	{
 		id: 71,
 		name: {
-			fr: "Johnson-City",
-			en: "Johnson-City",
-			ar: "جونسون-سيتي",
-			es: "Johnson-City",
+			fr: "Johnson City, TN",
+			en: "Johnson City, TN",
+			ar: "جونسون سيتي",
+			es: "Johnson City, TN",
 		},
 		country: {
 			fr: "États-Unis",
@@ -792,10 +874,10 @@ const cities = [
 	{
 		id: 72,
 		name: {
-			fr: "San Diego",
-			en: "San Diego",
+			fr: "San Diego, CA",
+			en: "San Diego, CA",
 			ar: "سان دييغو",
-			es: "San Diego",
+			es: "San Diego, CA",
 		},
 		country: {
 			fr: "États-Unis",
@@ -828,14 +910,14 @@ const cities = [
 		name: {
 			fr: "Madagascar",
 			en: "Madagascar",
-			ar: "مدغاسكار",
+			ar: "مدغشقر",
 			es: "Madagascar",
 		},
 		country: {
-			fr: "",
-			en: "",
-			ar: "",
-			es: "",
+			fr: "Madagascar",
+			en: "Madagascar",
+			ar: "مدغشقر",
+			es: "Madagascar",
 		},
 		lat: -18.9249604,
 		lng: 46.4416422,
@@ -860,10 +942,10 @@ const cities = [
 	{
 		id: 76,
 		name: {
-			fr: "New-York",
-			en: "New-York",
+			fr: "New York",
+			en: "New York",
 			ar: "نيويورك",
-			es: "Nueva-York",
+			es: "Nueva York",
 		},
 		country: {
 			fr: "États-Unis",
@@ -879,7 +961,7 @@ const cities = [
 		name: {
 			fr: "Lamastre",
 			en: "Lamastre",
-			ar: "لاماستري",
+			ar: "لاماستر",
 			es: "Lamastre",
 		},
 		country: {
@@ -890,6 +972,97 @@ const cities = [
 		},
 		lat: 44.985489,
 		lng: 4.579637,
+	},
+
+	// ——— Nouveaux lieux (mise à jour octobre 2026) ———
+	{
+		id: 78,
+		name: {
+			fr: "Hong Kong",
+			en: "Hong Kong",
+			ar: "هونغ كونغ",
+			es: "Hong Kong",
+		},
+		country: {
+			fr: "Hong Kong",
+			en: "Hong Kong",
+			ar: "هونغ كونغ",
+			es: "Hong Kong",
+		},
+		lat: 22.3193,
+		lng: 114.1694,
+	},
+	{
+		id: 79,
+		name: {
+			fr: "Chimacum, WA",
+			en: "Chimacum, WA",
+			ar: "تشيماكوم",
+			es: "Chimacum, WA",
+		},
+		country: {
+			fr: "États-Unis",
+			en: "United States",
+			ar: "الولايات المتحدة",
+			es: "Estados Unidos",
+		},
+		lat: 48.0115,
+		lng: -122.7768,
+	},
+	{
+		id: 80,
+		name: { fr: "Poitiers", en: "Poitiers", ar: "بواتييه", es: "Poitiers" },
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 46.5802,
+		lng: 0.3404,
+	},
+	{
+		id: 81,
+		name: {
+			fr: "Haute-Loire",
+			en: "Haute-Loire",
+			ar: "لوار العليا",
+			es: "Alto Loira",
+		},
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 45.0434,
+		lng: 3.8855,
+	},
+	{
+		id: 82,
+		name: { fr: "Verfeil", en: "Verfeil", ar: "فيرفاي", es: "Verfeil" },
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 43.6561,
+		lng: 1.6619,
+	},
+	{
+		id: 83,
+		name: {
+			fr: "Saint-Nazaire",
+			en: "Saint-Nazaire",
+			ar: "سان نازير",
+			es: "Saint-Nazaire",
+		},
+		country: { fr: "France", en: "France", ar: "فرنسا", es: "Francia" },
+		lat: 47.2735,
+		lng: -2.2138,
+	},
+	{
+		id: 84,
+		name: {
+			fr: "Kurdistan",
+			en: "Kurdistan",
+			ar: "كردستان",
+			es: "Kurdistán",
+		},
+		country: {
+			fr: "Kurdistan",
+			en: "Kurdistan",
+			ar: "كردستان",
+			es: "Kurdistán",
+		},
+		lat: 37.0,
+		lng: 43.5,
 	},
 ];
 

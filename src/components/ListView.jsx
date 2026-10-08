@@ -1,13 +1,39 @@
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+const EVENTS_LABEL = {
+	fr: (n) => `${n} événements`,
+	en: (n) => `${n} events`,
+	es: (n) => `${n} eventos`,
+	// L'arabe accorde le nom selon le nombre : duel pour 2,
+	// pluriel de 3 à 10, singulier à partir de 11.
+	ar: (n) => {
+		const rule = new Intl.PluralRules("ar").select(n);
+		if (rule === "two") return "فعاليتان";
+		if (rule === "few") return `${n} فعاليات`;
+		return `${n} فعالية`;
+	},
+};
+
 export default function ListView({ cities }) {
 	const [search, setSearch] = useState("");
 	const { t, i18n } = useTranslation();
 	const lang = i18n.language;
 
+	// Regroupe les villes présentes plusieurs fois (points décalés sur la carte)
+	// en une seule entrée avec un compteur d'événements.
+	const uniqueCities = useMemo(() => {
+		const map = {};
+		cities.forEach((c) => {
+			const key = `${c.name.fr}|${c.country.fr}`;
+			if (!map[key]) map[key] = { ...c, count: 0 };
+			map[key].count += 1;
+		});
+		return Object.values(map);
+	}, [cities]);
+
 	const filtered = useMemo(() => {
-		return cities.filter((c) => {
+		return uniqueCities.filter((c) => {
 			const q = search.toLowerCase();
 			return (
 				!q ||
@@ -15,7 +41,7 @@ export default function ListView({ cities }) {
 				c.country[lang].toLowerCase().includes(q)
 			);
 		});
-	}, [cities, search, lang]);
+	}, [uniqueCities, search, lang]);
 
 	const grouped = useMemo(() => {
 		const map = {};
@@ -26,15 +52,20 @@ export default function ListView({ cities }) {
 		});
 		const sorted = {};
 		Object.keys(map)
-			.sort()
+			.sort((a, b) => a.localeCompare(b, lang))
 			.forEach((country) => {
 				sorted[country] = map[country];
 			});
 		return sorted;
 	}, [filtered, lang]);
 
+	const eventsLabel = EVENTS_LABEL[lang] || EVENTS_LABEL.fr;
+
 	return (
-		<div style={{ maxWidth: 800, margin: "0 auto", padding: "32px 24px" }}>
+		<div
+			dir={lang === "ar" ? "rtl" : "ltr"}
+			style={{ maxWidth: 800, margin: "0 auto", padding: "32px 24px" }}
+		>
 			<div style={{ marginBottom: 28 }}>
 				<input
 					type="text"
@@ -109,8 +140,9 @@ export default function ListView({ cities }) {
 									display: "flex",
 									flexWrap: "wrap",
 									gap: 8,
-									paddingLeft: 12,
-									borderLeft: "2px solid var(--accent)",
+									paddingInlineStart: 12,
+									borderInlineStart:
+										"2px solid var(--accent)",
 								}}
 							>
 								{countryCities.map((c) => (
@@ -126,6 +158,16 @@ export default function ListView({ cities }) {
 										}}
 									>
 										{c.name[lang]}
+										{c.count > 1 && (
+											<span
+												style={{
+													color: "var(--accent)",
+													marginInlineStart: 4,
+												}}
+											>
+												({eventsLabel(c.count)})
+											</span>
+										)}
 									</span>
 								))}
 							</div>
