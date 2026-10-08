@@ -33,9 +33,9 @@
     "placeholder": "Search for a city or a country..."
   },
   "list": {
-  "cities": "city",
-  "cities_plural": "cities",
+  "cities": "place",
+  "cities_plural": "places",
   "countries": "countries",
-  "not_found": "No city found."
+  "not_found": "No place found."
 }
 }
