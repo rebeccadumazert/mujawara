@@ -34,8 +34,8 @@
   },
   "list": {
   "cities": "مكان",
-  "cities_plural": "أماكن",
-  "countries": "دول",
+  "cities_plural": "مكان",
+  "countries": "دولة",
   "not_found": "لا توجد مدينة."
 }
 }
